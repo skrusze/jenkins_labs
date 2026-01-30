@@ -18,8 +18,12 @@ pipeline {
         sh '''
   set -e
   python3 --version
-  python3 -m pip install -r requirements.txt
-  pytest -q --junitxml=pytest.xml
+  python3 -m venv .venv
+. .venv/bin/activate
+
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+pytest -q --junitxml=pytest.xml
 '''
 
       }
