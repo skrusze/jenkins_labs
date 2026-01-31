@@ -23,6 +23,7 @@ pipeline {
 
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+export PYTHONPATH="$PWD"
 pytest -q --junitxml=pytest.xml
 '''
 
